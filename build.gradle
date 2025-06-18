@@ -18,12 +18,37 @@ repositories {
 	mavenCentral()
 }
 
+configurations.implementation{
+	exclude group: 'xml-apis'
+	exclude group: 'org.w3c.dom', module: 'xerces'
+	exclude module: 'javaee-api'
+    exclude group:'org.springframework.boot' , module: 'spring-boot-starter-logging'
+    exclude group:'org.slf4j' , module: 'log4j-over-slf4j'
+    exclude group:'org.apache.logging.log4j' , module: 'log4j-to-slf4j'
+	exclude group:'org.apache.commons', module:'commons-collections4'
+	//exclude group:'org.apache.httpcomponents.client5', module:'httpclient5'
+	//exclude group:'org.apache.httpcomponents.core5', module:'httpcore5'
+	exclude group:'org.apache.commons', module:'commons-pool'
+	exclude group:'javax.xml.bind', module:'jaxb-api'
+	exclude group:'org.bouncycastle', module:'bcprov-jdk15on'
+	
+	exclude group: 'io.springfox', module: 'springfox-core'
+	exclude group: 'io.springfox', module: 'springfox-spi'
+	exclude group: 'io.springfox', module: 'springfox-spring-web'
+	exclude group: 'io.springfox', module: 'springfox-schema'
+	exclude group: 'io.springfox', module: 'springfox-swagger2'
+	exclude group: 'io.springfox', module: 'springfox-swagger-common'
+	exclude group: 'io.springfox', module: 'springfox-ui'
+	
+}
+
 dependencies {
 	implementation ('org.springframework.boot:spring-boot-starter-web'){
     	exclude group:'org.springframework.boot' , module: 'spring-boot-starter-tomcat'
     }
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	   implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0' // or latest
 }
 bootWar {
     enabled = false  // Disable Spring Boot's bootable WAR task
