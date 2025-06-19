@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
 	id 'war'
-	id 'org.springframework.boot' version '3.4.6'
+	id 'org.springframework.boot' version '2.7.0'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -48,7 +48,7 @@ dependencies {
     }
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	   implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0' // or latest
+	   implementation 'javax.servlet:servlet-api:2.5' // or latest
 }
 bootWar {
     enabled = false  // Disable Spring Boot's bootable WAR task
